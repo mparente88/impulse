@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://3cnoi7oqwejg"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_ikkor"]
+
+[node name="Elbow" type="Area2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+scale = Vector2(9.33908, 5.30826)
+texture = SubResource("ImageTexture_ikkor")
+polygon = PackedVector2Array(-10.2383, -2.03964, 6.07391, -2.03964, 14.1186, -11.3001, 18.3942, -7.97688, 6.41839, 5.98475, -10.3599, 5.92396)
+uv = PackedVector2Array(-10.2383, -2.03964, 6.07391, -2.03964, 14.1186, -11.3001, 18.3942, -7.97688, 6.41839, 5.98475, -10.3599, 5.92396)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(10.1981, -2.5188)
+polygon = PackedVector2Array(-9.31548, 3.57314, -9.41354, -12.3075, 5.88346, -12.3075, 16.5717, 16.6746, 12.9436, 23.4239, 5.58929, 3.57314)
+
+[node name="ConnectionPoint1" type="Marker2D" parent="."]
+position = Vector2(-96, 10)
+scale = Vector2(-124.403, 13.5881)
+
+[node name="ConnectionPoint2" type="Marker2D" parent="."]
+position = Vector2(150, -51)

@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbk8rtdslw4q2"]
+
+[ext_resource type="PackedScene" uid="uid://cenjxg5ph7p7" path="res://scenes/player/player.tscn" id="1_8160y"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Gameplay" type="Node2D" parent="."]
+
+[node name="Player" parent="Gameplay" instance=ExtResource("1_8160y")]
+scale = Vector2(0.998073, 1.02167)
+
+[node name="Bullets" type="Node2D" parent="Gameplay"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-1, 0)
+zoom = Vector2(0.5, 0.5)

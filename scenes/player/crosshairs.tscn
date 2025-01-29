@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0retr0i121vt"]
+
+[ext_resource type="Script" path="res://scripts/player/crosshairs.gd" id="1_o28ch"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_qf1f7"]
+
+[node name="Crosshairs" type="Node2D"]
+script = ExtResource("1_o28ch")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+scale = Vector2(1.04338, 1)
+offset = Vector2(-12.4595, -5)
+texture = SubResource("ImageTexture_qf1f7")
+polygon = PackedVector2Array(4.27618, 5.41281, 12.2761, -2.58716, 20.2762, 5.41281, 12.2761, 13.4128)
+uv = PackedVector2Array(6.44946, 6.44946, 14.4495, -1.55054, 22.4495, 6.44946, 14.4495, 14.4495)

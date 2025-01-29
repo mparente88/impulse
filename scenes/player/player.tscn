@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://cenjxg5ph7p7"]
+
+[ext_resource type="Script" path="res://scripts/player/player.gd" id="1_lmi6d"]
+[ext_resource type="PackedScene" uid="uid://d0retr0i121vt" path="res://scenes/player/crosshairs.tscn" id="2_4fi7f"]
+[ext_resource type="PackedScene" uid="uid://cxsmnxqtw28dp" path="res://scenes/player/bullet.tscn" id="3_bvx88"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_sdrkh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tnqbt"]
+radius = 25.2982
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 10
+script = ExtResource("1_lmi6d")
+crosshairs_scene = ExtResource("2_4fi7f")
+bullet_scene = ExtResource("3_bvx88")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(-3.8147e-06, 8)
+scale = Vector2(5.08191, 13.0074)
+color = Color(0.768777, 0.176641, 0.292814, 1)
+offset = Vector2(4.51402, -0.602131)
+texture = SubResource("ImageTexture_sdrkh")
+polygon = PackedVector2Array(-12.5034, 1.61633, -4.50342, -6.38367, 3.49658, 1.61633)
+uv = PackedVector2Array(-12.5034, 1.61633, -4.50342, -6.38367, 3.49658, 1.61633)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+scale = Vector2(1, 1)
+shape = SubResource("CircleShape2D_tnqbt")

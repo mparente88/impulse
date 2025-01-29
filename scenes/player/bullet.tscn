@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxsmnxqtw28dp"]
+
+[ext_resource type="Script" path="res://scripts/player/bullet.gd" id="1_mu0sx"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_y4uqk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3icei"]
+size = Vector2(2.1875, 7.86719)
+
+[node name="Bullet" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 2
+gravity_scale = 0.0
+can_sleep = false
+script = ExtResource("1_mu0sx")
+metadata/_edit_vertical_guides_ = [-106.51]
+metadata/_edit_horizontal_guides_ = [-50.4359]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+scale = Vector2(0.582, 2)
+color = Color(0.301961, 0.301961, 0.301961, 1)
+offset = Vector2(0.540894, 2.34211)
+texture = SubResource("ImageTexture_y4uqk")
+polygon = PackedVector2Array(-4.50342, 1.61627, 3.49658, 1.61627, 3.49658, -6.38373, -4.50342, -6.38373)
+uv = PackedVector2Array(-4.50342, 1.61627, 3.49658, 1.61627, 3.49658, -6.38373, -4.50342, -6.38373)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_3icei")
+debug_color = Color(0, 0.6, 0.701961, 1)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
