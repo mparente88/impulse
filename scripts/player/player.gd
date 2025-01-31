@@ -2,9 +2,11 @@ extends CharacterBody2D
 @export var crosshairs_scene: PackedScene # Assign the crosshairs.tscn in the Inspector
 @export var bullet_scene: PackedScene # Reference to the bullet scene
 @export var bullet_speed: float = 800
+@onready var camera = $"../../Camera2D" # Adjust if the camera is elsewhere
 const SHOOT_COOLDOWN = 0.05 # Time between shots in seconds
 var can_shoot = true # Tracks whether the player can currently shoot
 var is_shooting = false
+var screen_rect
 
 const SPEED = 450  # Maximum movement speed
 const ACCELERATION = 2300  # How quickly the player accelerates
@@ -27,6 +29,8 @@ var can_warp = true  # Tracks if the player can warp
 func _ready():
 	bullet_scene = preload("res://scenes/player/bullet.tscn")
 	crosshairs_scene = preload("res://scenes/player/crosshairs.tscn")
+	# Get the screen size from the viewport
+	screen_rect = get_viewport_rect()
 
 func _physics_process(_delta):
 	var input_direction = Vector2.ZERO
@@ -48,6 +52,24 @@ func _physics_process(_delta):
 	# Move the player
 	move_and_slide()
 	
+	# Get Camera Boundaries
+	var camera_position = camera.position
+	var viewport_size = get_viewport_rect().size
+	var zoom = camera.zoom
+	
+	# Calculate the camera's visible area
+	var half_width = (viewport_size.x * 0.5) / zoom.x
+	var half_height = (viewport_size.y * 0.5) / zoom.y
+	
+	var min_x = camera_position.x - half_width
+	var max_x = camera_position.x + half_width
+	var min_y = camera_position.y - half_height
+	var max_y = camera_position.y + half_height
+	
+	# Clamp the player's position within the visible area
+	position.x = clamp(position.x, min_x, max_x)
+	position.y = clamp(position.y, min_y, max_y)
+		
 	# Handle continuous shooting
 	if is_shooting and can_shoot:
 		shoot()
@@ -108,6 +130,9 @@ func cancel_warp():
 	is_ready_to_warp = false
 	
 func shoot():
+	var bullet_spawn_offset = Vector2(0, -60) # Adjust this value to move bullet spawn location
+	var bullet_position = self.global_position + bullet_spawn_offset.rotated(rotation)
+	
 	var bullet = bullet_scene.instantiate()  # Create a new bullet
 	var mouse_pos = get_global_mouse_position()
 	var direction = (mouse_pos - global_position).normalized()  # Direction toward the mouse
@@ -116,7 +141,7 @@ func shoot():
 	var random_variance = randf_range(-0.05, 0.05)  # Adjust this range for more or less variance
 	direction = direction.rotated(random_variance)
 
-	bullet.global_position = self.global_position  # Position the bullet at the player
+	bullet.global_position = bullet_position  # Position the bullet at the player
 	bullet.rotation = direction.angle() + deg_to_rad(90)
 	bullet.linear_velocity = direction * bullet_speed  # Set bullet velocity
 

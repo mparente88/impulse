@@ -26,5 +26,4 @@ uv = PackedVector2Array(-12.5034, 1.61633, -4.50342, -6.38367, 3.49658, 1.61633)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -8)
-scale = Vector2(1, 1)
 shape = SubResource("CircleShape2D_tnqbt")
