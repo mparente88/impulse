@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://brlk7xxs6v5b6"]
+
+[ext_resource type="Texture2D" uid="uid://4i3huaqwo5gn" path="res://Sprites/bosses/enemyElbow.png" id="1_l2ssb"]
+[ext_resource type="Script" path="res://scripts/systems/part.gd" id="2_ylt5b"]
+
+[node name="Elbow" type="Area2D"]
+script = ExtResource("2_ylt5b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_l2ssb")
+
+[node name="ConnectionPoints" type="Node2D" parent="."]
+
+[node name="ConnectionTop" type="Marker2D" parent="ConnectionPoints"]
+position = Vector2(38, -67)
+rotation = -1.5708
+
+[node name="ConnectionLeft" type="Marker2D" parent="ConnectionPoints"]
+position = Vector2(-68, 37)
+rotation = 3.14159
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-86, 12, -86, 62, 57, 64, 61, -88, 15, -87, 15, 15)

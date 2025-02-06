@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://c81r3omjw2k8g"]
+
+[ext_resource type="Texture2D" uid="uid://c68nq8h7ccvje" path="res://Sprites/bosses/enemyCore.png" id="1_m5swm"]
+[ext_resource type="Script" path="res://scripts/systems/part.gd" id="1_sbtk1"]
+
+[node name="Core" type="Area2D"]
+script = ExtResource("1_sbtk1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-6, 11)
+rotation = 1.04087
+texture = ExtResource("1_m5swm")
+
+[node name="ConnectionPoints" type="Node2D" parent="."]
+
+[node name="ConnectionTop" type="Marker2D" parent="ConnectionPoints"]
+position = Vector2(0, -63)
+rotation = -1.5708
+
+[node name="ConnectionBottom" type="Marker2D" parent="ConnectionPoints"]
+position = Vector2(0, 56)
+rotation = 1.5708
+
+[node name="ConnectionLeft" type="Marker2D" parent="ConnectionPoints"]
+position = Vector2(-52, -32)
+rotation = -3.14159
+
+[node name="ConnectionRight" type="Marker2D" parent="ConnectionPoints"]
+position = Vector2(52, 24)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-84, -42, 4, -93, 83, 30, -7, 87)

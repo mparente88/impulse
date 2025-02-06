@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://bagwjbtpbklqr"]
+
+[ext_resource type="Script" path="res://scripts/systems/BossAssemblyTool.gd" id="1_5eujd"]
+
+[node name="BossAssemblyTool" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_5eujd")
+
+[node name="Workspace" type="Node2D" parent="."]
+
+[node name="PartPalette" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Core" type="Button" parent="PartPalette"]
+layout_mode = 2
+text = "Core"
+
+[node name="Arm" type="Button" parent="PartPalette"]
+layout_mode = 2
+text = "Arm"
+
+[node name="Elbow" type="Button" parent="PartPalette"]
+layout_mode = 2
+text = "Elbow"
+
+[node name="Save Boss" type="Button" parent="."]
+layout_mode = 0
+offset_left = 68.0
+offset_right = 152.0
+offset_bottom = 31.0
+text = "Save Boss"
+
+[connection signal="pressed" from="PartPalette/Core" to="." method="_on_Core_pressed"]
+[connection signal="pressed" from="PartPalette/Arm" to="." method="_on_Arm_pressed"]
+[connection signal="pressed" from="PartPalette/Elbow" to="." method="_on_Elbow_pressed"]

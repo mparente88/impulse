@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bs4gh2vtqlovu"]
+
+[ext_resource type="Script" path="res://scripts/systems/part.gd" id="1_7d4po"]
+[ext_resource type="Texture2D" uid="uid://d0ia0ah3luw5r" path="res://Sprites/bosses/enemyArm.png" id="1_mcyyq"]
+
+[node name="Arm" type="Area2D"]
+script = ExtResource("1_7d4po")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_mcyyq")
+
+[node name="ConnectionPoints" type="Node2D" parent="."]
+
+[node name="ConnectionLeft" type="Marker2D" parent="ConnectionPoints"]
+position = Vector2(-51, -15)
+rotation = -3.14159
+
+[node name="ConnectionRight" type="Marker2D" parent="ConnectionPoints"]
+position = Vector2(51, -15)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(-1.91111, -3.18466)
+scale = Vector2(0.986111, 1.00568)
+polygon = PackedVector2Array(-72.0901, -36.6073, 69.8817, -36.6073, 69.8817, 14.1045, -71.0761, 12.1158)

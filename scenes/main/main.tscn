@@ -1,20 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://cbk8rtdslw4q2"]
+[gd_scene load_steps=2 format=3 uid="uid://cbk8rtdslw4q2"]
 
 [ext_resource type="PackedScene" uid="uid://cenjxg5ph7p7" path="res://scenes/player/player.tscn" id="1_8160y"]
-[ext_resource type="Script" path="res://scripts/bosses/enemy_spawner.gd" id="2_r5u8f"]
-[ext_resource type="PackedScene" uid="uid://c8nnx1ejatws3" path="res://scenes/player/core.tscn" id="3_lfsqt"]
-[ext_resource type="PackedScene" uid="uid://cc1pknr45d42y" path="res://scenes/player/Arm.tscn" id="4_6dmw5"]
-[ext_resource type="PackedScene" uid="uid://3cnoi7oqwejg" path="res://scenes/player/elbow.tscn" id="5_uoe1n"]
 
 [node name="Main" type="Node2D"]
-position = Vector2(1, 0)
 
 [node name="Gameplay" type="Node2D" parent="."]
-position = Vector2(0, 3)
 
 [node name="Player" parent="Gameplay" instance=ExtResource("1_8160y")]
 position = Vector2(1156, 1003)
-scale = Vector2(0.998073, 1.02167)
+scale = Vector2(0.981457, 1.01258)
 
 [node name="Bullets" type="Node2D" parent="Gameplay"]
 
@@ -24,10 +18,3 @@ scale = Vector2(0.998073, 1.02167)
 position = Vector2(1151, 650)
 scale = Vector2(10654.3, -256.069)
 zoom = Vector2(0.5, 0.5)
-
-[node name="EnemySpawner" type="Node2D" parent="."]
-position = Vector2(1153, 655)
-script = ExtResource("2_r5u8f")
-CoreScene = ExtResource("3_lfsqt")
-ArmScene = ExtResource("4_6dmw5")
-ElbowScene = ExtResource("5_uoe1n")
